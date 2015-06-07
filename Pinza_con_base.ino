@@ -1,3 +1,5 @@
+// Elaborado por Rodrigo Alberto Amaya Carranza para el proyecto de tecnología del Liceo Cristiano San Antonio
+
 #include <Servo.h>
 
 Servo rotacion;       //Servomotor de la base giratoria
@@ -7,7 +9,10 @@ Servo x;         //Servomotor para poder girar la pinza
 Servo pinza;          //Servomotor para abrir y cerrar la pinza
 
 int estado = 0;
-
+/*
+Se declasan los pines de los servos 
+y desde que grado iniciarán a girar.
+*/
 void setup() {
   Serial.begin(9600);
   rotacion.attach(1);
@@ -21,7 +26,10 @@ void setup() {
   pinza.attach(5);
   pinza.write(0);
 }
-
+/*
+Se declara que va a realizar el brazo según el 
+valor numérico que este reciba 
+*/
 void loop() {
 if(Serial.available()>0){
   estado = Serial.read();
